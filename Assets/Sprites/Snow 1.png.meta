@@ -1,37 +1,10 @@
 fileFormatVersion: 2
-guid: f88fe95eb35e05f418062817fd32b839
+guid: b0f2bedc4f10e4e4596f9a483a46867b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 823711594424146947
-    second: Pissman_0
-  - first:
-      213: -108812097238617592
-    second: Pissman_1
-  - first:
-      213: 2052586308834474712
-    second: Pissman_2
-  - first:
-      213: -6667892246646535586
-    second: Pissman_3
-  - first:
-      213: 5906662221578199034
-    second: Pissman_4
-  - first:
-      213: 128340182715669261
-    second: Pissman_5
-  - first:
-      213: 5303122544335350704
-    second: Pissman_6
-  - first:
-      213: -1832274432766381690
-    second: Pissman_7
-  - first:
-      213: -8263808156820516102
-    second: Pissman_8
-  - first:
-      213: -3878447428098063099
-    second: Pissman_9
+      213: -4155967326070950017
+    second: Snow 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -153,221 +126,309 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pissman_0
+      name: Snow LeftTopCorner
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7739677cb90356c0800000000000000
+      internalID: -4155967326070950017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow TopSide
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b0edd1fbc13b448a1d62c26e831084
+      internalID: -1857523175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow RightTopCorner
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729f0710e1a2f7444b4571cb8b288c4f
+      internalID: -1516056279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow TopLone
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32c230fa78350f48b2030c2d799342f
+      internalID: 1413659470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Lone
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2373af3c5dcd79b4bb8549f751fabc05
+      internalID: -1759439395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow LeftSide
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 989e530c97de62840b5fc0391af6a37a
+      internalID: -314542947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow Midle
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f609cef9aba29ac47a5190aa046d499c
+      internalID: 1744335418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow RightSide
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a07f24c7549e7439131bf74febd90e
+      internalID: 1382070785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow RightLone
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 762dec7a96decb242973aba3c538ae93
+      internalID: -958025852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow LeftLone
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c34018ad9b032e41b583f0d69644cfb
+      internalID: 200969147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow LeftBottomCorner
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 84
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 30c9507b4596e6b00800000000000000
-      internalID: 823711594424146947
+      spriteID: 88cd45437b0be004fbd0d7ae824425cc
+      internalID: 402744788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pissman_1
+      name: Snow BottomSide
       rect:
         serializedVersion: 2
-        x: 83
+        x: 32
+        y: 1
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8c9c060f2642a43b14e0027b25c8dd
+      internalID: 1002689480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow RightBottomCorner
+      rect:
+        serializedVersion: 2
+        x: 64
         y: 0
-        width: 85
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 802b3dc59fb6d7ef0800000000000000
-      internalID: -108812097238617592
+      spriteID: 35e14c09e1b558642947b8fe5ff622e9
+      internalID: -1971630162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pissman_2
+      name: Snow BottomLone
       rect:
         serializedVersion: 2
-        x: 167
+        x: 96
         y: 0
-        width: 84
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8dab8e07f504c7c10800000000000000
-      internalID: 2052586308834474712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pissman_3
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 0
-        width: 84
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e5a4d066453e673a0800000000000000
-      internalID: -6667892246646535586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pissman_4
-      rect:
-        serializedVersion: 2
-        x: 335
-        y: 0
-        width: 85
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aff5365eefda8f150800000000000000
-      internalID: 5906662221578199034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pissman_5
-      rect:
-        serializedVersion: 2
-        x: 419
-        y: 0
-        width: 84
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0b1d2957b4f7c100800000000000000
-      internalID: 128340182715669261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pissman_6
-      rect:
-        serializedVersion: 2
-        x: 504
-        y: 0
-        width: 84
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0bb697f5bd9789940800000000000000
-      internalID: 5303122544335350704
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pissman_7
-      rect:
-        serializedVersion: 2
-        x: 587
-        y: 0
-        width: 85
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 681fde77c147296e0800000000000000
-      internalID: -1832274432766381690
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pissman_8
-      rect:
-        serializedVersion: 2
-        x: 671
-        y: 0
-        width: 85
-        height: 132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: af2dcb0d34e015d80800000000000000
-      internalID: -8263808156820516102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pissman_9
-      rect:
-        serializedVersion: 2
-        x: 755
-        y: 3
-        width: 85
-        height: 129
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5050030fc9cfc2ac0800000000000000
-      internalID: -3878447428098063099
+      spriteID: 8ff33e37a90e91d47a63c24a273ece74
+      internalID: 653337195
       vertices: []
       indices: 
       edges: []
@@ -376,7 +437,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ad562fe01d51eaa4eafdab00692f28d2
     internalID: 0
     vertices: []
     indices: 
@@ -384,16 +445,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pissman_0: 823711594424146947
-      Pissman_1: -108812097238617592
-      Pissman_2: 2052586308834474712
-      Pissman_3: -6667892246646535586
-      Pissman_4: 5906662221578199034
-      Pissman_5: 128340182715669261
-      Pissman_6: 5303122544335350704
-      Pissman_7: -1832274432766381690
-      Pissman_8: -8263808156820516102
-      Pissman_9: -3878447428098063099
+      Snow BottomLone: 653337195
+      Snow BottomSide: 1002689480
+      Snow LeftBottomCorner: 402744788
+      Snow LeftLone: 200969147
+      Snow LeftSide: -314542947
+      Snow LeftTopCorner: -4155967326070950017
+      Snow Lone: -1759439395
+      Snow Midle: 1744335418
+      Snow RightBottomCorner: -1971630162
+      Snow RightLone: -958025852
+      Snow RightSide: 1382070785
+      Snow RightTopCorner: -1516056279
+      Snow TopLone: 1413659470
+      Snow TopSide: -1857523175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
