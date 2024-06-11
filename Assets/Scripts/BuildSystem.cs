@@ -114,7 +114,9 @@ private void Update()
             newBlock.transform.position=blockTemplate.transform.position;
             SpriteRenderer newReand=newBlock.AddComponent<SpriteRenderer>();
             newReand.sprite=currentBlock.BlockSprite;
-            newBlock.AddComponent<BoxCollider2D>();
+            BoxCollider2D Colision = newBlock.AddComponent<BoxCollider2D>();
+            Colision.size = new Vector2(0.99f,0.99f);
+            newBlock.layer=3;
         }
         
     }
