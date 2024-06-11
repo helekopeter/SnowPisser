@@ -22,6 +22,13 @@ public class BuildSystem : MonoBehaviour
     [SerializeField]
     private float BlockSizeMode;
 
+    //Layer mask to controll raycasting
+    [SerializeField]
+    private LayerMask PissBlock;
+
+    [SerializeField]
+    private LayerMask AllBlocksLayer;
+
     //Referece to the player object
     private GameObject PlayerObject;
 
@@ -118,8 +125,23 @@ private void Update()
             Colision.size = new Vector2(0.99f,0.99f);
             newBlock.layer=3;
         }
+       
+        if(Input.GetMouseButtonDown(1)&&blockTemplate!=null)
+        {
+            Debug.Log("Destroy!");
+
+            RaycastHit2D destroyHit=Physics2D.Raycast(blockTemplate.transform.position,Vector2.zero,Mathf.Infinity,AllBlocksLayer);
+
+           if(destroyHit.collider!=null)
+           {
+                Destroy(destroyHit.collider.gameObject);
+           }
+            
+        }
+        
         
     }
+    
 }
 
 }
