@@ -115,6 +115,7 @@ private void Update()
             SpriteRenderer newReand=newBlock.AddComponent<SpriteRenderer>();
             newReand.sprite=currentBlock.BlockSprite;
             newBlock.AddComponent<BoxCollider2D>();
+            newBlock.layer=3;
         }
         
     }
