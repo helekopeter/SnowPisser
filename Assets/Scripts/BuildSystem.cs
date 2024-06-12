@@ -1,6 +1,8 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class BuildSystem : MonoBehaviour
 {
@@ -41,6 +43,11 @@ public class BuildSystem : MonoBehaviour
     public int SnowInPiss = 2;
     private int SnowCollected;
 
+    public GameObject Hand;
+    private bool HandGrabbing = false;
+    private GameObject GrabbingThis;
+    public GameObject Mouth;
+
     private void Awake()
     {
         //Store referece to block system script
@@ -53,8 +60,13 @@ public class BuildSystem : MonoBehaviour
 
 private void Update()
 {
-    //If pissKey is pressed toggle pissmode
-    if(Input.GetKeyDown("e"))
+    if (HandGrabbing)
+        {
+            Hand.transform.position = Vector2.Lerp(Hand.transform.position, GrabbingThis.transform.position, Time.deltaTime*8);
+        }
+
+        //If pissKey is pressed toggle pissmode
+        if (Input.GetKeyDown("e"))
     {
         //Flip bool
         DickOut=!DickOut;
@@ -133,14 +145,17 @@ private void Update()
            {
                     if(destroyHit.collider.gameObject.tag != "Solid")
                     {
-                        Debug.Log("Destroy! " + destroyHit.collider.gameObject.name);
-                        Destroy(destroyHit.collider.gameObject);
-                        SnowCollected++;
-                        if (SnowCollected >= SnowInPiss)
+                        if (!HandGrabbing)
                         {
-                            SnowCollected = 0;
-                            if (PissManeger.Piss < PissManeger.MaxPiss)
-                                PissManeger.PissCounterUpdate(PissManeger.Piss + 1);
+                            Debug.Log("Destroy! " + destroyHit.collider.gameObject.name);
+                            StartCoroutine(GrabBlock(destroyHit.collider.gameObject));
+                            SnowCollected++;
+                            if (SnowCollected >= SnowInPiss)
+                            {
+                                SnowCollected = 0;
+                                if (PissManeger.Piss < PissManeger.MaxPiss)
+                                    PissManeger.PissCounterUpdate(PissManeger.Piss + 1);
+                            }
                         }
                     }
            }
@@ -171,5 +186,22 @@ private void Update()
         Colision.size = new Vector2(0.99f, 0.99f);
         newBlock.layer = 3;
         newReand.color = new Color(0.9395934f, 0.9622642f, 0.4039694f, 1.0f);
+    }
+
+    IEnumerator GrabBlock(GameObject Block)
+    {
+        Transform HandParent = Hand.transform.parent;
+        Hand.transform.parent = null;
+        GrabbingThis = Block;
+        HandGrabbing = true;
+        yield return new WaitForSeconds(0.25f);
+        Destroy(GrabbingThis);
+        Hand.transform.GetChild(0).gameObject.SetActive(true);
+        GrabbingThis = Mouth;
+        yield return new WaitForSeconds(0.25f);
+        Hand.transform.GetChild(0).gameObject.SetActive(false);
+        Hand.transform.parent = HandParent;
+        Hand.transform.localPosition = Vector3.zero;
+        HandGrabbing = false;
     }
 }

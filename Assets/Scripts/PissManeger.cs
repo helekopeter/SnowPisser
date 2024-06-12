@@ -32,5 +32,6 @@ void Start()
   {
    MaxPiss = newMaxPiss; 
    slider.maxValue=MaxPiss;
+   slider.minValue = 0;
   }
 }
