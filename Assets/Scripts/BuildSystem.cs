@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BuildSystem : MonoBehaviour
 {
@@ -68,8 +69,6 @@ private void Update()
             }
         }
 
-        if(DickOut)
-        {
             //Create a new object forr blockTemplate
             blockTemplate=new GameObject("CurrentBlockTemplate");
             //Add and store reference to a SpriteRenderer on the template object
@@ -78,9 +77,7 @@ private void Update()
             currentRender.sprite=currentBlock.BlockSprite;
         }
 
-    }
-
-    if(DickOut && blockTemplate !=null)
+    if(blockTemplate !=null)
     {
         float newPosX=Mathf.Round(Camera.main.ScreenToWorldPoint(Input.mousePosition).x / BlockSizeMode)*BlockSizeMode;
         float newPosY=Mathf.Round(Camera.main.ScreenToWorldPoint(Input.mousePosition).y / BlockSizeMode)*BlockSizeMode;
@@ -89,10 +86,10 @@ private void Update()
         RaycastHit2D rayHit;
 
         
-        rayHit=Physics2D.Raycast(blockTemplate.transform.position, Vector2.zero, Mathf.Infinity);
-        
-        
-        if(rayHit.collider !=null)
+        rayHit= Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), Mathf.Infinity, LayerMask.GetMask("Ground"));
+
+
+            if (rayHit.collider !=null)
         {
             BuildBlocked=true;
         }
@@ -115,7 +112,7 @@ private void Update()
             currentRender.color=new Color(1f,1f,1f,1f);
         }
 
-        if(Input.GetMouseButtonDown(0)&&BuildBlocked==false)
+        if(Input.GetMouseButtonDown(0)&&BuildBlocked==false&&DickOut)
         {
             GameObject newBlock=new GameObject(currentBlock.BlockName);
             newBlock.transform.position=blockTemplate.transform.position;
@@ -124,22 +121,26 @@ private void Update()
             BoxCollider2D Colision = newBlock.AddComponent<BoxCollider2D>();
             Colision.size = new Vector2(0.99f,0.99f);
             newBlock.layer=3;
-        }
-       
-        if(Input.GetMouseButtonDown(1)&&blockTemplate!=null)
+            newReand.color = new Color(0.9395934f, 0.9622642f, 0.4039694f, 1.0f);
+            }
+
+        if (Input.GetMouseButtonDown(0) &&!DickOut)
         {
             Debug.Log("Destroy!");
 
-            RaycastHit2D destroyHit=Physics2D.Raycast(blockTemplate.transform.position,Vector2.zero,Mathf.Infinity,AllBlocksLayer);
+            var destroyHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()),Mathf.Infinity,LayerMask.GetMask("Ground"));
 
            if(destroyHit.collider!=null)
            {
-                Destroy(destroyHit.collider.gameObject);
+                    if(destroyHit.collider.gameObject.tag != "Solid")
+                    {
+                        Debug.Log("Destroy! " + destroyHit.collider.gameObject.name);
+                        Destroy(destroyHit.collider.gameObject);
+                    }
            }
-            
-        }
-        
-        
+           else
+           Debug.Log("Destroy nothing!");
+        }       
     }
     
 }
