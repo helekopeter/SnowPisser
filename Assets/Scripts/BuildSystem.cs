@@ -105,23 +105,16 @@ private void Update()
 
         if(BuildBlocked)
         {
-            currentRender.color=new Color(1f,0f,0f,1f);
+            currentRender.color=new Color(1f,0f,0f,0f);
         }
         else
         {
-            currentRender.color=new Color(1f,1f,1f,1f);
+            currentRender.color=new Color(1f,1f,1f,0f);
         }
 
         if(Input.GetMouseButtonDown(0)&&BuildBlocked==false&&DickOut)
         {
-            GameObject newBlock=new GameObject(currentBlock.BlockName);
-            newBlock.transform.position=blockTemplate.transform.position;
-            SpriteRenderer newReand=newBlock.AddComponent<SpriteRenderer>();
-            newReand.sprite=currentBlock.BlockSprite;
-            BoxCollider2D Colision = newBlock.AddComponent<BoxCollider2D>();
-            Colision.size = new Vector2(0.99f,0.99f);
-            newBlock.layer=3;
-            newReand.color = new Color(0.9395934f, 0.9622642f, 0.4039694f, 1.0f);
+                //PlaceBlock();
             }
 
         if (Input.GetMouseButtonDown(0) &&!DickOut)
@@ -144,5 +137,26 @@ private void Update()
     }
     
 }
-
+    public void PlaceBlock()
+    {
+        GameObject newBlock = new GameObject(currentBlock.BlockName);
+        newBlock.transform.position = blockTemplate.transform.position;
+        SpriteRenderer newReand = newBlock.AddComponent<SpriteRenderer>();
+        newReand.sprite = currentBlock.BlockSprite;
+        BoxCollider2D Colision = newBlock.AddComponent<BoxCollider2D>();
+        Colision.size = new Vector2(0.99f, 0.99f);
+        newBlock.layer = 3;
+        newReand.color = new Color(0.9395934f, 0.9622642f, 0.4039694f, 1.0f);
+    }
+    public void PlaceBlockHere(Vector3 Pos)
+    {
+        GameObject newBlock = new GameObject(currentBlock.BlockName);
+        newBlock.transform.position = new Vector3(Mathf.Round(Pos.x), Mathf.Round(Pos.y), Mathf.Round(Pos.z));
+        SpriteRenderer newReand = newBlock.AddComponent<SpriteRenderer>();
+        newReand.sprite = currentBlock.BlockSprite;
+        BoxCollider2D Colision = newBlock.AddComponent<BoxCollider2D>();
+        Colision.size = new Vector2(0.99f, 0.99f);
+        newBlock.layer = 3;
+        newReand.color = new Color(0.9395934f, 0.9622642f, 0.4039694f, 1.0f);
+    }
 }
