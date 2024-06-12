@@ -11,26 +11,24 @@ public class PissManeger : MonoBehaviour
     public TextMeshProUGUI StoredPiss;
 
     //Referece the piss value
-    public int Piss=3;
+    public int Piss;
     public int MaxPiss=6;
+    
 
+
+  public void PissCounterUpdate(int newPiss)
+  {
+    Piss=newPiss;
+    StoredPiss.SetText("Piss: "+newPiss);
+    slider.value=newPiss;
+  }
 void Start()
 {
     PissCounterUpdate(Piss);
 }
 
-  public void PissCounterUpdate(int newPiss)
-  {
-    Piss=newPiss;
-    StoredPiss.text="Piss: "+Piss;
-    slider.value=Piss;
-  }
-
-  public void SetMaxPiss(int Piss)
+  public void SetMaxPiss(int MaxPiss)
   {
     slider.maxValue=MaxPiss;
   }
-
-
-
 }
