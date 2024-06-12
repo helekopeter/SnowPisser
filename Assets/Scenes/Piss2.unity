@@ -874,7 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1247827933}
   StoredPiss: {fileID: 1174452463}
-  Piss: 1
+  Piss: 2
   MaxPiss: 6
 --- !u!1 &140267860
 GameObject:
@@ -8916,7 +8916,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1247827931}
   - component: {fileID: 1247827933}
-  - component: {fileID: 1247827932}
   m_Layer: 5
   m_Name: PissBar
   m_TagString: Untagged
@@ -8945,22 +8944,6 @@ RectTransform:
   m_AnchoredPosition: {x: 460.94537, y: 130.14139}
   m_SizeDelta: {x: 125.8413, y: 81.8907}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1247827932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247827930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c3b6baf1adcce4a93c11aaaeeb7118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1247827933}
-  StoredPiss: {fileID: 1174452463}
-  Piss: 0
-  MaxPiss: 6
 --- !u!114 &1247827933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9008,7 +8991,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 4
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
