@@ -7,6 +7,8 @@ public class BuildSystem : MonoBehaviour
     //Reference to the BlockSystem script
     private BlockSystem BlockSys;
 
+    private PissManeger PissManeger;
+
     //Variables to hold data for current block
     private int currentBlockID=0;
     private Block currentBlock;
@@ -36,10 +38,14 @@ public class BuildSystem : MonoBehaviour
     [SerializeField]
     private float MaxPissDistance;
 
+    public int SnowInPiss = 2;
+    private int SnowCollected;
+
     private void Awake()
     {
         //Store referece to block system script
         BlockSys=GetComponent<BlockSystem>();
+        PissManeger=GetComponent<PissManeger>();
 
         //Find player and store reference
         PlayerObject=GameObject.Find("Player");
@@ -129,6 +135,13 @@ private void Update()
                     {
                         Debug.Log("Destroy! " + destroyHit.collider.gameObject.name);
                         Destroy(destroyHit.collider.gameObject);
+                        SnowCollected++;
+                        if (SnowCollected >= SnowInPiss)
+                        {
+                            SnowCollected = 0;
+                            if (PissManeger.Piss < PissManeger.MaxPiss)
+                                PissManeger.PissCounterUpdate(PissManeger.Piss + 1);
+                        }
                     }
            }
            else

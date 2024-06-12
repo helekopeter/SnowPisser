@@ -24,11 +24,13 @@ public class PissManeger : MonoBehaviour
   }
 void Start()
 {
-    PissCounterUpdate(Piss);
+        SetMaxPiss(MaxPiss);
+        PissCounterUpdate(Piss);
 }
 
-  public void SetMaxPiss(int MaxPiss)
+  public void SetMaxPiss(int newMaxPiss)
   {
-    slider.maxValue=MaxPiss;
+   MaxPiss = newMaxPiss; 
+   slider.maxValue=MaxPiss;
   }
 }
