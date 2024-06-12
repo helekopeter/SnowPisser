@@ -19,8 +19,8 @@ public class PissManeger : MonoBehaviour
   public void PissCounterUpdate(int newPiss)
   {
     Piss=newPiss;
-    StoredPiss.SetText("Piss: "+newPiss);
-    slider.value=newPiss;
+    StoredPiss.SetText(Piss.ToString());
+    slider.value=Piss;
   }
 void Start()
 {
