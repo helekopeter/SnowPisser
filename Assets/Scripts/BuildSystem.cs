@@ -43,19 +43,20 @@ public class BuildSystem : MonoBehaviour
     public int SnowInPiss = 2;
     private int SnowCollected;
 
-    public GameObject Hand;
+    private GameObject Hand;
     private bool HandGrabbing = false;
     private GameObject GrabbingThis;
-    public GameObject Mouth;
+    private GameObject Mouth;
 
     private void Awake()
     {
         //Store referece to block system script
         BlockSys=GetComponent<BlockSystem>();
         PissManeger=GetComponent<PissManeger>();
-
+        Hand = GameObject.Find("Hand");
+        Mouth = GameObject.Find("Mouth");
         //Find player and store reference
-        PlayerObject=GameObject.Find("Player");
+        PlayerObject =GameObject.Find("Player");
     }
 
 private void Update()
