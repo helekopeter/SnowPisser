@@ -47,23 +47,36 @@ public class BuildSystem : MonoBehaviour
     private bool HandGrabbing = false;
     private GameObject GrabbingThis;
     private GameObject Mouth;
+    private LineRenderer HandLine;
+    private LineRenderer HandOutline;
+    private Transform HandParent;
+
 
     private void Awake()
     {
         //Store referece to block system script
-        BlockSys=GetComponent<BlockSystem>();
+        BlockSys =GetComponent<BlockSystem>();
         PissManeger=GetComponent<PissManeger>();
         Hand = GameObject.Find("Hand");
         Mouth = GameObject.Find("Mouth");
+        HandLine = GameObject.Find("HandLine").GetComponent<LineRenderer>();
+        HandOutline = GameObject.Find("HandOutline").GetComponent<LineRenderer>();
+        HandLine.enabled = false;
+        HandOutline.enabled = false;
         //Find player and store reference
         PlayerObject =GameObject.Find("Player");
+        HandParent = Hand.transform.parent;
     }
 
-private void Update()
+    private void Update()
 {
     if (HandGrabbing)
         {
             Hand.transform.position = Vector2.Lerp(Hand.transform.position, GrabbingThis.transform.position, Time.deltaTime*8);
+            HandLine.SetPosition(0, HandParent.position+new Vector3(0,0.3f,0));
+            HandLine.SetPosition(1, Hand.transform.position);
+            HandOutline.SetPosition(0, HandParent.position + new Vector3(0, 0.3f, 0));
+            HandOutline.SetPosition(1, Hand.transform.position);
         }
 
         //If pissKey is pressed toggle pissmode
@@ -134,38 +147,37 @@ private void Update()
         if(Input.GetMouseButtonDown(0)&&BuildBlocked==false&&DickOut)
         {
                 //PlaceBlock();
-            }
-
-        if (Input.GetMouseButtonDown(0) &&!DickOut)
+            }   
+    }
+        if (Input.GetMouseButtonDown(0) && !DickOut)
         {
             Debug.Log("Destroy!");
 
-            var destroyHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()),Mathf.Infinity,LayerMask.GetMask("Ground"));
+            var destroyHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), Mathf.Infinity, LayerMask.GetMask("Ground"));
 
-           if(destroyHit.collider!=null)
-           {
-                    if(destroyHit.collider.gameObject.tag != "Solid")
+            if (destroyHit.collider != null)
+            {
+                if (destroyHit.collider.gameObject.tag != "Solid")
+                {
+                    if (!HandGrabbing)
                     {
-                        if (!HandGrabbing)
+                        Debug.Log("Destroy! " + destroyHit.collider.gameObject.name);
+                        StartCoroutine(GrabBlock(destroyHit.collider.gameObject));
+                        SnowCollected++;
+                        if (SnowCollected >= SnowInPiss)
                         {
-                            Debug.Log("Destroy! " + destroyHit.collider.gameObject.name);
-                            StartCoroutine(GrabBlock(destroyHit.collider.gameObject));
-                            SnowCollected++;
-                            if (SnowCollected >= SnowInPiss)
-                            {
-                                SnowCollected = 0;
-                                if (PissManeger.Piss < PissManeger.MaxPiss)
-                                    PissManeger.PissCounterUpdate(PissManeger.Piss + 1);
-                            }
+                            SnowCollected = 0;
+                            if (PissManeger.Piss < PissManeger.MaxPiss)
+                                PissManeger.PissCounterUpdate(PissManeger.Piss + 1);
                         }
                     }
-           }
-           else
-           Debug.Log("Destroy nothing!");
-        }       
+                }
+            }
+            else
+                Debug.Log("Destroy nothing!");
+        }
+
     }
-    
-}
     public void PlaceBlock()
     {
         GameObject newBlock = new GameObject(currentBlock.BlockName);
@@ -191,15 +203,26 @@ private void Update()
 
     IEnumerator GrabBlock(GameObject Block)
     {
-        Transform HandParent = Hand.transform.parent;
         Hand.transform.parent = null;
         GrabbingThis = Block;
         HandGrabbing = true;
+        HandLine.enabled = true;
+        HandOutline.enabled = true;
+        Vector2 towardsBlock = GrabbingThis.transform.position - Hand.transform.position;
+        Hand.transform.rotation = Quaternion.LookRotation(towardsBlock);
+        Hand.transform.localRotation = Hand.transform.localRotation * Quaternion.Euler(0f,90f,-90f);
+        Hand.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = GrabbingThis.GetComponent<SpriteRenderer>().color;
         yield return new WaitForSeconds(0.25f);
         Destroy(GrabbingThis);
         Hand.transform.GetChild(0).gameObject.SetActive(true);
         GrabbingThis = Mouth;
+        towardsBlock = GrabbingThis.transform.position - Hand.transform.position;
+        Hand.transform.rotation = Quaternion.LookRotation(towardsBlock);
+        Hand.transform.localRotation = Hand.transform.localRotation * Quaternion.Euler(0f, 90f, -90f);
         yield return new WaitForSeconds(0.25f);
+        Hand.transform.rotation = Quaternion.Euler(0f,0f,0f);
+        HandLine.enabled = false;
+        HandOutline.enabled = false;
         Hand.transform.GetChild(0).gameObject.SetActive(false);
         Hand.transform.parent = HandParent;
         Hand.transform.localPosition = Vector3.zero;
