@@ -50,7 +50,7 @@ public class BuildSystem : MonoBehaviour
     private LineRenderer HandLine;
     private LineRenderer HandOutline;
     private Transform HandParent;
-
+    public GameObject LastBlockPlaced;
 
     private void Awake()
     {
@@ -188,6 +188,7 @@ public class BuildSystem : MonoBehaviour
         Colision.size = new Vector2(0.99f, 0.99f);
         newBlock.layer = 3;
         newReand.color = new Color(0.9395934f, 0.9622642f, 0.4039694f, 1.0f);
+        LastBlockPlaced = newBlock;
     }
     public void PlaceBlockHere(Vector3 Pos)
     {
@@ -199,6 +200,7 @@ public class BuildSystem : MonoBehaviour
         Colision.size = new Vector2(0.99f, 0.99f);
         newBlock.layer = 3;
         newReand.color = new Color(0.9395934f, 0.9622642f, 0.4039694f, 1.0f);
+        LastBlockPlaced = newBlock;
     }
 
     IEnumerator GrabBlock(GameObject Block)
