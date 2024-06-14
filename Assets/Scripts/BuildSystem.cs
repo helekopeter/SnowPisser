@@ -169,6 +169,8 @@ public class BuildSystem : MonoBehaviour
                             SnowCollected = 0;
                             if (PissManeger.Piss < PissManeger.MaxPiss)
                                 PissManeger.PissCounterUpdate(PissManeger.Piss + 1);
+                            else
+                                PissManeger.Piss=PissManeger.MaxPiss/2;
                         }
                     }
                 }
