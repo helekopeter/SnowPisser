@@ -4,12 +4,20 @@ using UnityEngine.UI;
 
 public class RestartZone : MonoBehaviour
 {
- private void OnTriggerEnter2D(Collider2D collision)
+    //Refere to MainMenu script
+public MainMenu menu;
+
+    private void Awake()
+    {
+        menu=FindAnyObjectByType<MainMenu>();
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            //How do I refere to the game over screen?!?!?!!
-            GetComponent<MainMenu>().GameOverScreen();
+            //Execute order 66
+            menu.GameOverScreen();
         }
     }
 }
