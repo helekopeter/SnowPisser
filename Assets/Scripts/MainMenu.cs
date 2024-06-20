@@ -8,6 +8,9 @@ public class MainMenu : MonoBehaviour
     InputAction PauseAction;
     [SerializeField]
     GameObject PauseMenu;
+    [SerializeField]
+    GameObject GameOver;
+    
     
 
     private void Start()
@@ -52,9 +55,11 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-
-
-
+    public void GameOverScreen()
+    {
+        GameOver.SetActive(true);
+        Time.timeScale=0;
+    }
 
 
 }
