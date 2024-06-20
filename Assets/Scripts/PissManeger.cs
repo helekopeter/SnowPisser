@@ -21,10 +21,6 @@ public class PissManeger : MonoBehaviour
     Piss=newPiss;
     StoredPiss.SetText(Piss.ToString());
     slider.value=Piss;
-    if(Piss>MaxPiss)
-    {
-        Piss=MaxPiss/2;
-    }
   }
 void Start()
 {

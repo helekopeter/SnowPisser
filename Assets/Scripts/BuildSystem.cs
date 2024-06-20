@@ -100,55 +100,10 @@ public class BuildSystem : MonoBehaviour
                 currentBlock=BlockSys.AllBlocks[currentBlockID];
             }
         }
-
-            //Create a new object forr blockTemplate
-            blockTemplate=new GameObject("CurrentBlockTemplate");
-            //Add and store reference to a SpriteRenderer on the template object
-            currentRender=blockTemplate.AddComponent<SpriteRenderer>();
-            //Set the sprite to template object to match current block type
-            currentRender.sprite=currentBlock.BlockSprite;
         }
 
-    if(blockTemplate !=null)
-    {
-        float newPosX=Mathf.Round(Camera.main.ScreenToWorldPoint(Input.mousePosition).x / BlockSizeMode)*BlockSizeMode;
-        float newPosY=Mathf.Round(Camera.main.ScreenToWorldPoint(Input.mousePosition).y / BlockSizeMode)*BlockSizeMode;
-        blockTemplate.transform.position=new Vector2(newPosX, newPosY);
-
-        RaycastHit2D rayHit;
-
-        
-        rayHit= Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), Mathf.Infinity, LayerMask.GetMask("Ground"));
-
-
-            if (rayHit.collider !=null)
-        {
-            BuildBlocked=true;
-        }
-        else
-        {
-            BuildBlocked=false;
-        }
-
-        if(Vector2.Distance(PlayerObject.transform.position, blockTemplate.transform.position)>MaxPissDistance)
-        {
-            BuildBlocked=true;
-        }
-
-        if(BuildBlocked)
-        {
-            currentRender.color=new Color(1f,0f,0f,0f);
-        }
-        else
-        {
-            currentRender.color=new Color(1f,1f,1f,0f);
-        }
-
-        if(Input.GetMouseButtonDown(0)&&BuildBlocked==false&&DickOut)
-        {
-                //PlaceBlock();
-            }   
-    }
+  
+    
         if (Input.GetMouseButtonDown(0) && !DickOut)
         {
             Debug.Log("Destroy!");
@@ -169,6 +124,8 @@ public class BuildSystem : MonoBehaviour
                             SnowCollected = 0;
                             if (PissManeger.Piss < PissManeger.MaxPiss)
                                 PissManeger.PissCounterUpdate(PissManeger.Piss + 1);
+
+                                //If acseed MaxPiss divide by 2
                             else
                                 PissManeger.Piss=PissManeger.MaxPiss/2;
                         }

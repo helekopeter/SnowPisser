@@ -12,10 +12,12 @@ public class MainMenu : MonoBehaviour
     GameObject GameOver;
     
     
+    
 
     private void Start()
     {
         PauseAction=InputSystem.actions.FindAction("Pause");
+        
     }
 
     private void Update()
@@ -55,6 +57,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    //From MainMenu.c#
     public void GameOverScreen()
     {
         GameOver.SetActive(true);
